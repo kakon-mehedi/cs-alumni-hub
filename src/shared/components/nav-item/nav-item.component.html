@@ -1,0 +1,60 @@
+<ng-container *ngIf="!navigation?.children?.length">
+	<ng-container
+		[ngTemplateOutlet]="singleNavItem"
+		[ngTemplateOutletContext]="{
+			navigationDetails: navigation
+		}"
+	></ng-container>
+</ng-container>
+
+<ng-container *ngIf="navigation?.children?.length > 0">
+	<ng-container
+		[ngTemplateOutlet]="multiNavItem"
+		[ngTemplateOutletContext]="{
+			navigationDetails: navigation
+		}"
+	></ng-container>
+</ng-container>
+
+<!-- Single Nav Template -->
+<ng-template
+	#singleNavItem
+	let-nav="navigationDetails"
+>
+	<a
+		mat-list-item
+		routerLink="nav.url"
+	>
+		{{ nav.title }}
+	</a>
+</ng-template>
+
+<!-- Multi Nav Template -->
+<ng-template
+	#multiNavItem
+	let-nav="navigationDetails"
+>
+	<mat-expansion-panel>
+		<mat-expansion-panel-header>
+			<mat-panel-title> {{ nav.title }}</mat-panel-title>
+		</mat-expansion-panel-header>
+
+		<ng-container *ngFor="let childNav of nav.children">
+			<ng-container
+				*ngIf="!childNav?.children?.length"
+				[ngTemplateOutlet]="singleNavItem"
+				[ngTemplateOutletContext]="{
+					navigationDetails: childNav
+				}"
+			></ng-container>
+
+			<ng-container
+				*ngIf="childNav?.children?.length > 0"
+				[ngTemplateOutlet]="multiNavItem"
+				[ngTemplateOutletContext]="{
+					navigationDetails: childNav
+				}"
+			></ng-container>
+		</ng-container>
+	</mat-expansion-panel>
+</ng-template>
