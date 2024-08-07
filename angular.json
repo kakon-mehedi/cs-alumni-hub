@@ -3,7 +3,7 @@
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
-		"angular-scratch-uth": {
+		"cs-alumni-hub": {
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:component": {
@@ -17,7 +17,7 @@
 				"build": {
 					"builder": "ngx-build-plus:browser",
 					"options": {
-						"outputPath": "dist/angular-scratch-uth",
+						"outputPath": "dist/cs-alumni-hub",
 						"index": "src/index.html",
 						"polyfills": ["zone.js"],
 						"tsConfig": "tsconfig.app.json",
@@ -64,7 +64,8 @@
 						"development": {
 							"optimization": false,
 							"extractLicenses": false,
-							"sourceMap": true
+							"sourceMap": true,
+							"namedChunks": true
 						}
 					},
 					"defaultConfiguration": "production"
@@ -73,10 +74,10 @@
 					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "angular-scratch-uth:build:production"
+							"buildTarget": "cs-alumni-hub:build:production"
 						},
 						"development": {
-							"buildTarget": "angular-scratch-uth:build:development"
+							"buildTarget": "cs-alumni-hub:build:development"
 						}
 					},
 					"defaultConfiguration": "development"
