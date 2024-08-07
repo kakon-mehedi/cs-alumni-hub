@@ -41,8 +41,8 @@ export const routes: Routes = [
 	{
 		path: 'login',
 		loadChildren: () =>
-			import('../../autentication/authentication.moudle').then(
-				(m) => m.AuthenticationModule
+			import('../../auth/auth.moudle').then(
+				(m) => m.AuthModule
 			),
 		canActivate: [FeatureCanActivate],
 		data: {

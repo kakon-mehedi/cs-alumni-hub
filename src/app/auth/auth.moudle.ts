@@ -3,15 +3,14 @@ import { SignupComponent } from "./components/signup/signup.component";
 import { LoginComponent } from "./components/login/login.component";
 import { SharedModule } from "../../shared/shared.module";
 import { RouterModule } from "@angular/router";
-import { authenticationModuleRoutes } from "./routes";
-import { CommonModule } from "@angular/common";
+import { authModuleRoutes } from "./routes";
 
 @NgModule({
-    imports: [SharedModule, RouterModule.forChild(authenticationModuleRoutes)],
+    imports: [SharedModule, RouterModule.forChild(authModuleRoutes)],
     declarations: [SignupComponent, LoginComponent],
     bootstrap: [LoginComponent]
 })
-export class AuthenticationModule {
+export class AuthModule {
     constructor() {
         console.log('Authenctication Module Loads');
     }
